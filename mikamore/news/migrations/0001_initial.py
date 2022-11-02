@@ -15,12 +15,17 @@ class Migration(migrations.Migration):
             name='News',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=255)),
-                ('content', models.TextField(blank=True)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('photo', models.ImageField(upload_to='photos/%Y/%m/%d/')),
-                ('is_published', models.BooleanField(default=True)),
+                ('title', models.CharField(max_length=255, verbose_name='Название')),
+                ('content', models.TextField(blank=True, verbose_name='Контент')),
+                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Дата публикации')),
+                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Дата обновления')),
+                ('photo', models.ImageField(blank=True, upload_to='photos/%Y/%m/%d/')),
+                ('is_published', models.BooleanField(default=True, verbose_name='Было опубликовано')),
             ],
+            options={
+                'ordering': ['-created_at', 'title'],
+                'verbose_name': 'Новость',
+                'verbose_name_plural': 'Новости',
+            },
         ),
     ]
