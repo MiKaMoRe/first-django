@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}
   {{ news.title }}
 {% endblock title %}
@@ -8,7 +9,7 @@
       {% if news.photo %}
         <img src="{{ news.photo.url }}" alt="..." />
       {% else %}
-        <img src="/media/icons/no_image.png"
+        <img src="{% static 'news/icons/no_image.png' %}"
              alt="..."
              style="max-height: 180px;
                     width: 180px;
