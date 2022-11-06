@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}
+  {{ news.title }}
+{% endblock title %}
+{% block content %}
+  <div class="row">
+    <div class="col-md-9">
+      {% if news.photo %}
+        <img src="{{ news.photo.url }}" alt="..." />
+      {% else %}
+        <img src="/media/icons/no_image.png"
+             alt="..."
+             style="max-height: 180px;
+                    width: 180px;
+                    margin: 0 auto"/>
+      {% endif %}
+      <div>
+        <h5>{{ news.title }}</h5>
+        <p>{{ news.content }}</p>
+        <p>
+          <small class="text-muted">Было создано: {{ news.created_at|date:'Y-m-d H:i:s' }}</small>
+        </p>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
