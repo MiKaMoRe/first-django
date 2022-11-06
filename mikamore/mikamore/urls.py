@@ -21,12 +21,11 @@ from django.urls import path, include
 from news.views import index, get_category
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('news/', include('news.urls')),
-    path('category/<int:category_id>/', get_category, name='category'),
-    path('', index, name='root')
+    path("admin/", admin.site.urls),
+    path("news/", include("news.urls")),
+    path("category/<int:category_id>/", get_category, name="category"),
+    path("", index, name="root"),
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

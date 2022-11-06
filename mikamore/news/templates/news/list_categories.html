@@ -1,8 +1,10 @@
 <div class="col-md-3">
   <div class="list-group">
+
     {% for category_item in categories %}
       <a href="{{ category_item.get_absolute_url }}"
          class="list-group-item list-group-item-action">{{ category_item.title }}</a>
     {% endfor %}
+
   </div>
 </div>

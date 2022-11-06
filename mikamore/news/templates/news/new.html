@@ -1,14 +1,38 @@
 {% extends "base.html" %}
+
 {% block title %}
   Создание новости
 {% endblock title %}
+
 {% block content %}
   <div class="row">
     <h1>Создание новости</h1>
   </div>
   <form action="{% url 'new_news' %}" method="post">
+    {% for error in form.non_field.errors %}{{ error }}{% endfor %}
+    {{ form.non_field_errors }}
     {% csrf_token %}
-    {{ form.as_p }}
+    <div class="mb-3">
+      <label for="{{ form.title.id_for_label }}" class="form-label">Название</label>
+      {{ form.title }}
+      {{ form.title.errors }}
+    </div>
+    <div class="mb-3">
+      <label for="{{ form.content.id_for_label }}" class="form-label">Текст:</label>
+      {{ form.content }}
+      {{ form.content.errors }}
+    </div>
+    <div class="mb-3">
+      <label for="{{ form.is_published.id_for_label }}" class="form-label">Опубликовать:</label>
+      {{ form.is_published }}
+      {{ form.is_published.errors }}
+    </div>
+    <div class="mb-3">
+      <label for="{{ form.category.id_for_label }}" class="form-label">Категория:</label>
+      {{ form.category }}
+      {{ form.category.errors }}
+    </div>
+    {% comment %} {{ form.as_p }} {% endcomment %}
     <button type="submit" class="btn btn-primary btn-block">Добавить новость</button>
   </form>
 {% endblock content %}

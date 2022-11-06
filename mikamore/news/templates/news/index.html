@@ -1,14 +1,21 @@
 {% extends "base.html" %}
+
 {% load static %}
+
 {% block title %}
   Новости
 {% endblock title %}
+
 {% block content %}
   <div class="row">
+
     {% include "include/_sidebar.html" %}
+
     <div class="col-md-9" style="display: flex; flex-wrap: wrap; gap: 20px;">
+
       {% for item in news %}
         <div class="card" style="width: 18rem;">
+
           {% if item.photo %}
             <img src="{{ item.photo.url }}" class="card-img-top" alt="..." />
           {% else %}
@@ -19,6 +26,7 @@
                         width: 180px;
                         margin: 0 auto"/>
           {% endif %}
+
           <div class="card-body">
             <h5 class="card-title">{{ item.title }}</h5>
             <p class="card-text">{{ item.content|truncatewords:'5' }}</p>
@@ -30,6 +38,7 @@
           </div>
         </div>
       {% endfor %}
+
     </div>
   </div>
 {% endblock content %}
