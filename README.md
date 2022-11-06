@@ -5,3 +5,4 @@
 - djLint
 - isort
 - Mithril Emmet
+- Black Formatter
