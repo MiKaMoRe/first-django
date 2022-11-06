@@ -8,4 +8,3 @@ class NewsForm(forms.Form):
     is_published = forms.BooleanField()
     # photo = forms.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     category = forms.ModelChoiceField(queryset=Category.objects.all())
-
