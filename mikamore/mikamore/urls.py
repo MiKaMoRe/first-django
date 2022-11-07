@@ -18,13 +18,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path, include
 
-from news.views import index, get_category
+from news.views import *
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("news/", include("news.urls")),
-    path("category/<int:category_id>/", get_category, name="category"),
-    path("", index, name="root"),
+    path("category/<int:category_id>/", ListNewsByCategory.as_view(), name="category"),
+    path("", ListNews.as_view(), name="root"),
 ]
 
 if settings.DEBUG:

@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block title %}
-  Новости
+  {{ category.title|default:'Новости' }}
 {% endblock title %}
 
 {% block content %}
