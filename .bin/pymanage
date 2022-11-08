@@ -1,0 +1,9 @@
+#!/bin/bash
+arguments=()
+
+for var in "$@"
+do
+    arguments+=("${var}")
+done
+
+python ~/projects/django/first_project/mikamore/manage.py ${arguments[@]}
