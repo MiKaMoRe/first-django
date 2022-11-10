@@ -11,6 +11,7 @@ class ListNews(ListView):
     model = News
     template_name = "news/index.html"
     context_object_name = "news"
+    # queryset = News.objects.select_related('category')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -18,7 +19,7 @@ class ListNews(ListView):
         return context
 
     def get_queryset(self):
-        return News.objects.filter(is_published=True)
+        return News.objects.filter(is_published=True).select_related('category')
 
 
 class ListNewsByCategory(ListView):
