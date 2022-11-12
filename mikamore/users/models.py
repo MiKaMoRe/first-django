@@ -3,8 +3,7 @@ from django.db import models
 
 
 class User(AbstractUser):
-    usersname = models.CharField(max_length=255, verbose_name="Nickname")
-    email = models.EmailField(max_length=255, verbose_name="Email")
+    email = models.EmailField(max_length=255, verbose_name="email")
 
     class Meta:
         verbose_name = "Пользователь"

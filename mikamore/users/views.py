@@ -1,9 +1,16 @@
+from django.urls import reverse_lazy
 from django.shortcuts import render
+from django.views.generic import ListView, DetailView, CreateView
+from users.forms import *
 
 
-def sign_in(request):
-    return render(request, "users/sign_in.html")
+class SignIn(CreateView):
+    form_class = UserCreationForm
+    template_name = "users/sign_in.html"
+    success_url = reverse_lazy("root")
 
 
-def sign_up(request):
-    return render(request, "users/sign_up.html")
+class SignUp(CreateView):
+    form_class = UserSignUpForm
+    template_name = "users/sign_up.html"
+    success_url = reverse_lazy("root")

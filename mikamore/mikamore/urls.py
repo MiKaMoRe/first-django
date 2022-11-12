@@ -26,8 +26,9 @@ urlpatterns = [
     path("__debug__/", include("debug_toolbar.urls")),
     path("admin/", admin.site.urls),
     path("news/", include("news.urls")),
-    path("sign_in", sign_in, name="sign_in"),
-    path("sign_up", sign_up, name="sign_up"),
+    path("users/", include("users.urls")),
+    path("sign_in", SignIn.as_view(), name="sign_in"),
+    path("sign_up", SignUp.as_view(), name="sign_up"),
     path("category/<int:category_id>/", ListNewsByCategory.as_view(), name="category"),
     path("", ListNews.as_view(), name="root"),
 ]
