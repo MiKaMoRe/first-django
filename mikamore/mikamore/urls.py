@@ -19,12 +19,15 @@ from django.conf.urls.static import static
 from django.urls import path, include
 from django.urls import include, path
 
+from users.views import *
 from news.views import *
 
 urlpatterns = [
     path("__debug__/", include("debug_toolbar.urls")),
     path("admin/", admin.site.urls),
     path("news/", include("news.urls")),
+    path("sign_in", sign_in, name="sign_in"),
+    path("sign_up", sign_up, name="sign_up"),
     path("category/<int:category_id>/", ListNewsByCategory.as_view(), name="category"),
     path("", ListNews.as_view(), name="root"),
 ]

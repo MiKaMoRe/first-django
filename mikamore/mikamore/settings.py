@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
 
+from django.utils.translation import get_language
+from factory import Faker
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -41,6 +43,7 @@ INSTALLED_APPS = [
     "debug_toolbar",
     "news.apps.NewsConfig",
     "seeder.apps.SeederConfig",
+    "users.apps.UsersConfig"
 ]
 
 MIDDLEWARE = [
@@ -137,3 +140,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 
 INTERNAL_IPS = ["127.0.0.1"]
+
+Faker._DEFAULT_LOCALE = get_language()
+
+AUTH_USER_MODEL = 'users.User'

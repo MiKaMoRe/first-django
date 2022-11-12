@@ -3,7 +3,7 @@ from news.test.factories import *
 import random
 
 
-def SeedNews():
+def seed_news():
     categories = CategoryFactory.create_batch(5)
 
     for category in categories:

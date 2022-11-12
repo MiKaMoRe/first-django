@@ -11,6 +11,7 @@ class ListNews(ListView):
     model = News
     template_name = "news/index.html"
     context_object_name = "news"
+    paginate_by = 10
     # queryset = News.objects.select_related('category')
 
     def get_context_data(self, **kwargs):
@@ -27,6 +28,7 @@ class ListNewsByCategory(ListView):
     template_name = "news/index.html"
     context_object_name = "news"
     allow_empty = False
+    paginate_by = 10
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
